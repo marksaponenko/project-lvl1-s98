@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-import index from '..'
+import printUsername from '..'
+console.log(printUsername())
