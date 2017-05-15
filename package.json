@@ -1,6 +1,6 @@
 {
   "name": "brain-games-somenumber",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "My first project",
   "main": "index.js",
   "bin": {
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marksaponenko/brain-games.git"
+    "url": "git+https://github.com/marksaponenko/project-lvl1-s98"
   },
   "author": "Mark Saponenko",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/marksaponenko/brain-games/issues"
   },
-  "homepage": "https://github.com/marksaponenko/brain-games#readme",
+  "homepage": "https://github.com/saponenkomark/brain-games#readme",
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
