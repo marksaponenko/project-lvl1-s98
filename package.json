@@ -13,7 +13,7 @@
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublish": "npm run build",
-    "eslint": "eslint brain-games/src/index.js"
+    "eslint": "eslint src"
   },
   "repository": {
     "type": "git",
