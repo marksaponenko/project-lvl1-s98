@@ -1,3 +1,4 @@
 #!/usr/bin/env node
-import printUsername from '..'
-console.log(printUsername())
+import { printUsername } from '../';
+
+printUsername();
