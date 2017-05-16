@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { printUsername } from '../';
+// import { printUsername } from '../';
 
-printUsername();
+// printUsername();
