@@ -1,25 +1,27 @@
 import readlineSync from 'readline-sync';
+import { getRandomExpression, getCorrectAnswer } from './games/brain-calc';
 
 console.log('Welcome to the Brain Games!');
-console.log('Answer "yes" if number even otherwise answer "no".');
+
+console.log('What is the result of the expression?');
+
+const randomExpression = getRandomExpression();
+const correctAnswer = getCorrectAnswer();
 const userName = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${userName}!`);
-const getRandomNumber = () => Math.floor(Math.random() * 100);
 let numberOfTries = 1;
 const askQuestion = () => {
   if (numberOfTries > 3) {
     return console.log(`Congratulations, ${userName}!`);
   }
-  const randomNumber = getRandomNumber();
-  const correctAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-  console.log(`Question: ${randomNumber}`);
+  console.log(`Question: ${randomExpression}`);
   const userAnswer = readlineSync.question('Your answer: ');
-  if (correctAnswer === userAnswer) {
+  if (correctAnswer == userAnswer) {
     numberOfTries += 1;
     console.log('Correct!');
     return askQuestion();
   }
-  return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLets try again, ${userName}`);
+  return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLets try again, ${userName}`);
 };
 
 export default askQuestion;
