@@ -1,8 +1,8 @@
+import askQuestion from '..';
+
 export const greetingMessage = 'Balance the given number.'
 
-export const randomNumber = Math.floor(Math.random() * (9999 - 100 + 1)) + 100;
-
-const numberToArr = String(randomNumber).split('');
+const getRandomNumber = () => Math.floor(Math.random() * (9999 - 100 + 1)) + 100;
 
 const balanceNumber = (arrOfNumbers) => {
 
@@ -18,4 +18,9 @@ const balanceNumber = (arrOfNumbers) => {
   return arrOfNumbers.join().replace(/\,/g, "")
 };
 
-export const balancedNumber = balanceNumber(numberToArr);
+const getBalancedNumber = (number) => {
+  const arrOfNumbers = String(number).split('');
+  return balanceNumber(arrOfNumbers);
+}
+
+export const startGame = () => askQuestion(getRandomNumber, getBalancedNumber)
