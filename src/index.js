@@ -2,15 +2,17 @@ import readlineSync from 'readline-sync';
 
 console.log('Welcome to the Brain Games!');
 
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${userName}!`);
 
+let userName = '';
 let numberOfTries = 1;
 
 const askQuestion = (getQuestion, getCorrectAnswer) => {
   const question = getQuestion();
   const correctAnswer = getCorrectAnswer(question);
-
+  if (numberOfTries === 1) {
+    userName = readlineSync.question('May I have your name? ');
+    console.log(`Hello, ${userName}!`);
+  }
   if (numberOfTries > 3) {
     return console.log(`Congratulations, ${userName}!`);
   }
