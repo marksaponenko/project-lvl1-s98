@@ -2,7 +2,6 @@ import readlineSync from 'readline-sync';
 
 console.log('Welcome to the Brain Games!');
 
-
 let userName = '';
 let numberOfTries = 1;
 
