@@ -1,6 +1,6 @@
 import askQuestion from '..';
 
-export const greetingMessage = 'Balance the given number.';
+console.log('Balance the given number.');
 
 const getRandomNumber = () => Math.floor(Math.random() * 1000);
 
@@ -14,7 +14,7 @@ const balanceNumber = (arrOfNumbers) => {
 
     return balanceNumber(sortedArr);
   }
-  return arrOfNumbers.join().replace(/\,/g, '');
+  return arrOfNumbers.join().replace(/,/g, '');
 };
 
 const getBalancedNumber = (number) => {
@@ -22,4 +22,6 @@ const getBalancedNumber = (number) => {
   return balanceNumber(arrOfNumbers);
 };
 
-export const startGame = () => askQuestion(getRandomNumber, getBalancedNumber);
+const startGame = () => askQuestion(getRandomNumber, getBalancedNumber);
+
+export default startGame;

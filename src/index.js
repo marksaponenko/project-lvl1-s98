@@ -1,8 +1,6 @@
 import readlineSync from 'readline-sync';
-import { greetingMessage } from './games/brain-gcd';
 
 console.log('Welcome to the Brain Games!');
-console.log(greetingMessage);
 
 const userName = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${userName}!`);
@@ -20,7 +18,7 @@ const askQuestion = (getQuestion, getCorrectAnswer) => {
   console.log(`Question: ${question}`);
   const userAnswer = readlineSync.question('Your answer: ');
 
-  if (correctAnswer == userAnswer) {
+  if (correctAnswer === Number(userAnswer)) {
     numberOfTries += 1;
     console.log('Correct!');
     return askQuestion(getQuestion, getCorrectAnswer);

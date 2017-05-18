@@ -1,6 +1,6 @@
 import askQuestion from '..';
 
-export const greetingMessage = 'What is the result of the expression?';
+console.log('What is the result of the expression?');
 
 const getOperation = () => {
   const firstOperand = Math.floor(Math.random() * 25);
@@ -26,4 +26,6 @@ const getCorrectAnswer = (operation) => {
   return Number(strToArr[0]) - Number(strToArr[2]);
 };
 
-export const startGame = () => askQuestion(getOperation, getCorrectAnswer);
+const startGame = () => askQuestion(getOperation, getCorrectAnswer);
+
+export default startGame;

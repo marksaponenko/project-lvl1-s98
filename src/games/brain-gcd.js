@@ -1,22 +1,21 @@
 import askQuestion from '..';
 
-export const greetingMessage = 'Find the greatest common divisor of given numbers.';
+console.log('Find the greatest common divisor of given numbers.');
 
 const isPrime = (num) => {
-  if (num < 2) {
-    return false;
-  }
-
-  let i = 2;
-
-  while (i <= num / 2) {
-    if (num % i === 0) {
+  const iter = (number, divisor) => {
+    if (number < 2) {
       return false;
     }
-    i += 1;
-  }
-
-  return true;
+    if (divisor === 1) {
+      return true;
+    }
+    if (number % divisor === 0) {
+      return false;
+    }
+    return iter(number, divisor - 1);
+  };
+  return iter(num, Math.round(num / 2));
 };
 
 const getNotPrimeNumber = (num) => {
@@ -40,7 +39,7 @@ const findGreatestDivisor = (firstNumber, secondNumber) => {
   return findGreatestDivisor(secondNumber, firstNumber % secondNumber);
 };
 
-const getGreatestDivisor = (pairOfNumbers) => {
+const getCorrectAnswer = (pairOfNumbers) => {
   const strToArr = pairOfNumbers.split(' ');
   const firstNumber = strToArr[0];
   const secondNumber = strToArr[1];
@@ -48,4 +47,6 @@ const getGreatestDivisor = (pairOfNumbers) => {
   return findGreatestDivisor(firstNumber, secondNumber);
 };
 
-export const startGame = () => askQuestion(getPairOfNumbers, getGreatestDivisor);
+const startGame = () => askQuestion(getPairOfNumbers, getCorrectAnswer);
+
+export default startGame;
