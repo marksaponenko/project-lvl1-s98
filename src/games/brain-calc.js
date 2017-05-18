@@ -1,24 +1,29 @@
+import askQuestion from '..';
+
 export const greetingMessage = 'What is the result of the expression?';
 
-const firstOperand = Math.floor(Math.random() * 25);
-const secondOperand = Math.floor(Math.random() * 25);
+const getOperation = () => {
+  const firstOperand = Math.floor(Math.random() * 25);
+  const secondOperand = Math.floor(Math.random() * 25);
 
-const mult = `${firstOperand} * ${secondOperand}`;
-const add = `${firstOperand} + ${secondOperand}`;
-const subtr = `${firstOperand} + ${secondOperand}`;
+  const mult = `${firstOperand} * ${secondOperand}`;
+  const add = `${firstOperand} + ${secondOperand}`;
+  const subtr = `${firstOperand} - ${secondOperand}`;
 
-const arrOfOperations = [mult, add, subtr];
-export const operation = arrOfOperations[Math.floor(Math.random() * 3)];
+  const arrOfOperations = [mult, add, subtr];
+  return arrOfOperations[Math.floor(Math.random() * 3)];
+};
 
-
-export const getCorrectAnswer = () => {
+const getCorrectAnswer = (operation) => {
   const strToArr = operation.split(' ');
 
   if (strToArr[1] === '*') {
-    return firstOperand * secondOperand;
+    return Number(strToArr[0]) * Number(strToArr[2]);
   }
-  else if (strToArr[1] === '+') {
-    return firstOperand + secondOperand;
+  if (strToArr[1] === '+') {
+    return Number(strToArr[0]) + Number(strToArr[2]);
   }
-  return firstOperand - secondOperand;
+  return Number(strToArr[0]) - Number(strToArr[2]);
 };
+
+export const startGame = () => askQuestion(getOperation, getCorrectAnswer);
