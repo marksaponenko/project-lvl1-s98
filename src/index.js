@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
-import { greetingMessage } from './games/brain-calc';
+import { greetingMessage } from './games/brain-gcd';
 
 console.log('Welcome to the Brain Games!');
-console.log('What is the result of the expression?');
+console.log(greetingMessage);
 
 const userName = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${userName}!`);

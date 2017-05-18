@@ -1,6 +1,8 @@
+import askQuestion from '..';
+
 export const greetingMessage = 'Find the greatest common divisor of given numbers.';
 
-const isPrime = num => {
+const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
@@ -11,7 +13,7 @@ const isPrime = num => {
     if (num % i === 0) {
       return false;
     }
-    i++;
+    i += 1;
   }
 
   return true;
@@ -22,16 +24,28 @@ const getNotPrimeNumber = (num) => {
     return getNotPrimeNumber(num - 1);
   }
   return num;
-}
+};
 
-const firstNumber = getNotPrimeNumber(Math.floor(Math.random()*100));
-const secondNumber = getNotPrimeNumber(Math.floor(Math.random()*100));
-export const pairOfNumbers = `${firstNumber} ${secondNumber}`;
+const getPairOfNumbers = () => {
+  const firstNumber = getNotPrimeNumber(Math.floor(Math.random() * 100));
+  const secondNumber = getNotPrimeNumber(Math.floor(Math.random() * 100));
 
-const findGreatestDivisor = (firstNimber, secondNumber) => {
+  return `${firstNumber} ${secondNumber}`;
+};
+
+const findGreatestDivisor = (firstNumber, secondNumber) => {
   if (secondNumber === 0) {
-    return firstNimber;
+    return firstNumber;
   }
-  return findGreatestDivisor(secondNumber, firstNimber % secondNumber);
-}
-export const greatestDivisor = findGreatestDivisor(firstNumber, secondNumber);
+  return findGreatestDivisor(secondNumber, firstNumber % secondNumber);
+};
+
+const getGreatestDivisor = (pairOfNumbers) => {
+  const strToArr = pairOfNumbers.split(' ');
+  const firstNumber = strToArr[0];
+  const secondNumber = strToArr[1];
+
+  return findGreatestDivisor(firstNumber, secondNumber);
+};
+
+export const startGame = () => askQuestion(getPairOfNumbers, getGreatestDivisor);
