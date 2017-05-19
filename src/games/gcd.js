@@ -1,7 +1,5 @@
 import startChallenge from '..';
 
-console.log('Find the greatest common divisor of given numbers.');
-
 const isPrime = (num) => {
   const iter = (number, divisor) => {
     if (number < 2) {
@@ -46,6 +44,7 @@ const getCorrectAnswer = (pairOfNumbers) => {
 
   return findGreatestDivisor(firstNumber, secondNumber);
 };
+
 const getGameDescription = () => 'Find the greatest common divisor of given numbers.';
 const startGame = () => startChallenge(getPairOfNumbers, getCorrectAnswer, getGameDescription);
 

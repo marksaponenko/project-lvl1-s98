@@ -1,13 +1,13 @@
 import startChallenge from '..';
-import { makeNewStr, max, min } from './support-functions';
+import { getNewStr, getMaxNumber, getMinNumber } from '../helpers';
 
 const getRandomNumber = () => Math.floor(Math.random() * 1000);
 
 const getBalanceNumber = (number) => {
   const numberToSrt = String(number);
-  const maxNumber = max(numberToSrt);
-  const minNumber = min(numberToSrt);
-  const newStr = makeNewStr(maxNumber, minNumber, numberToSrt);
+  const maxNumber = getMaxNumber(numberToSrt);
+  const minNumber = getMinNumber(numberToSrt);
+  const newStr = getNewStr(maxNumber, minNumber, numberToSrt);
   if (maxNumber - minNumber > 1) {
     return getBalanceNumber(newStr);
   }

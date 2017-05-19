@@ -1,4 +1,4 @@
-export const makeNewStr = (maxNumber, minNumber, str) => {
+export const getNewStr = (maxNumber, minNumber, str) => {
   const newMaxNumber = maxNumber - 1;
   const newMinNumber = +minNumber + 1;
   const indexOfMinNumber = str.indexOf(minNumber);
@@ -19,7 +19,7 @@ export const makeNewStr = (maxNumber, minNumber, str) => {
   return newStr.split('').sort().join('');
 };
 
-export const max = (number) => {
+export const getMaxNumber = (number) => {
   const numToStr = String(number);
   const iter = (str, acc, count) => {
     while (count < str.length) {
@@ -33,7 +33,7 @@ export const max = (number) => {
   return iter(numToStr, 0, 0);
 };
 
-export const min = (number) => {
+export const getMinNumber = (number) => {
   const numToStr = String(number);
   const iter = (str, acc, count) => {
     while (count < str.length) {
