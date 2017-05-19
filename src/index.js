@@ -5,9 +5,11 @@ console.log('Welcome to the Brain Games!');
 let userName = '';
 let numberOfTries = 1;
 
-const startChallenge = (getQuestion, getCorrectAnswer, gameDescription) => {
+const startChallenge = (getQuestion, getCorrectAnswer, getGameDescription) => {
+  const gameDescription = getGameDescription();
   const question = getQuestion();
   const correctAnswer = getCorrectAnswer(question);
+
   if (numberOfTries === 1) {
     userName = readlineSync.question('May I have your name? ');
     console.log(`Hello, ${userName}!`);

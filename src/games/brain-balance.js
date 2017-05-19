@@ -19,7 +19,7 @@ const getBalancedNumber = (number) => {
   const arrOfNumbers = String(number).split('');
   return balanceNumber(arrOfNumbers);
 };
-const gameDescription = 'Balance the given number.';
-const startGame = () => startChallenge(getRandomNumber, getBalancedNumber, gameDescription);
+const getGameDescription = () => console.log('Balance the given number.');
+const startGame = () => startChallenge(getOperation, getCorrectAnswer, getGameDescription);
 
 export default startGame;
