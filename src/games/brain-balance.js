@@ -14,7 +14,7 @@ const balanceNumber = (arrOfNumbers) => {
 
     return balanceNumber(sortedArr);
   }
-  return arrOfNumbers.join().replace(/,/g, '');
+  return Number(arrOfNumbers.join().replace(/,/g, ''));
 };
 
 const getBalancedNumber = (number) => {
