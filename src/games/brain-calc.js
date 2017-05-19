@@ -24,7 +24,7 @@ const getCorrectAnswer = (operation) => {
   return Number(strToArr[0]) - Number(strToArr[2]);
 };
 
-const gameDescription = 'What is the result of the expression?';
+const gameDescription = console.log('What is the result of the expression?');
 const startGame = () => startChallenge(getOperation, getCorrectAnswer, gameDescription);
 
 export default startGame;
