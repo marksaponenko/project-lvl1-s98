@@ -46,7 +46,7 @@ const getCorrectAnswer = (pairOfNumbers) => {
 
   return findGreatestDivisor(firstNumber, secondNumber);
 };
-const getGameDescription = () => console.log('Find the greatest common divisor of given numbers.');
+const getGameDescription = () => 'Find the greatest common divisor of given numbers.';
 const startGame = () => startChallenge(getPairOfNumbers, getCorrectAnswer, getGameDescription);
 
 export default startGame;

@@ -1,25 +1,20 @@
 import startChallenge from '..';
+import { makeNewStr, max, min } from './support-functions';
 
 const getRandomNumber = () => Math.floor(Math.random() * 1000);
 
-const balanceNumber = (arrOfNumbers) => {
-  const arrLength = arrOfNumbers.length;
-  const sortedArr = arrOfNumbers.sort();
-
-  if ((sortedArr[arrLength - 1] - sortedArr[0]) > 1) {
-    sortedArr[arrLength - 1] -= 1;
-    sortedArr[0] = +sortedArr[0] + 1;
-
-    return balanceNumber(sortedArr);
+const getBalanceNumber = (number) => {
+  const numberToSrt = String(number);
+  const maxNumber = max(numberToSrt);
+  const minNumber = min(numberToSrt);
+  const newStr = makeNewStr(maxNumber, minNumber, numberToSrt);
+  if (maxNumber - minNumber > 1) {
+    return getBalanceNumber(newStr);
   }
-  return Number(arrOfNumbers.join().replace(/,/g, ''));
+  return Number(numberToSrt);
 };
 
-const getBalancedNumber = (number) => {
-  const arrOfNumbers = String(number).split('');
-  return balanceNumber(arrOfNumbers);
-};
-const getGameDescription = () => console.log('Balance the given number.');
-const startGame = () => startChallenge(getRandomNumber, getBalancedNumber, getGameDescription);
+const getGameDescription = () => 'Balance the given number.';
+const startGame = () => startChallenge(getRandomNumber, getBalanceNumber, getGameDescription);
 
 export default startGame;
