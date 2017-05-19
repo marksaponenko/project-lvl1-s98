@@ -1,7 +1,5 @@
 import askQuestion from '..';
 
-console.log('Balance the given number.');
-
 const getRandomNumber = () => Math.floor(Math.random() * 1000);
 
 const balanceNumber = (arrOfNumbers) => {
@@ -21,7 +19,7 @@ const getBalancedNumber = (number) => {
   const arrOfNumbers = String(number).split('');
   return balanceNumber(arrOfNumbers);
 };
-
-const startGame = () => askQuestion(getRandomNumber, getBalancedNumber);
+const gameDescription = 'Balance the given number.';
+const startGame = () => startChallenge(getRandomNumber, getBalancedNumber, gameDescription);
 
 export default startGame;

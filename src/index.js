@@ -5,7 +5,7 @@ console.log('Welcome to the Brain Games!');
 let userName = '';
 let numberOfTries = 1;
 
-const askQuestion = (getQuestion, getCorrectAnswer) => {
+const startChallenge = (getQuestion, getCorrectAnswer, gameDescription) => {
   const question = getQuestion();
   const correctAnswer = getCorrectAnswer(question);
   if (numberOfTries === 1) {
@@ -22,11 +22,11 @@ const askQuestion = (getQuestion, getCorrectAnswer) => {
   if (correctAnswer === Number(userAnswer)) {
     numberOfTries += 1;
     console.log('Correct!');
-    return askQuestion(getQuestion, getCorrectAnswer);
+    return startChallenge(getQuestion, getCorrectAnswer);
   }
 
   return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLets try again, ${userName}`);
 };
 
 
-export default askQuestion;
+export default startChallenge;
