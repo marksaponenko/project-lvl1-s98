@@ -7,6 +7,7 @@ let numberOfTries = 1;
 
 const startChallenge = (getQuestion, getCorrectAnswer, getGameDescription) => {
   const gameDescription = getGameDescription();
+  console.log(gameDescription);
   const question = getQuestion();
   const correctAnswer = getCorrectAnswer(question);
 
