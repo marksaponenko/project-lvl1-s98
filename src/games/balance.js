@@ -13,7 +13,7 @@ const getBalanceNumber = (number) => {
   return number;
 };
 
-const getGameDescription = () => 'Balance the given number.';
-const startGame = () => startChallenge(getNumber, getBalanceNumber, getGameDescription);
+const gameDescription = 'Balance the given number.';
+const startGame = () => startChallenge(getNumber, getBalanceNumber, gameDescription);
 
 export default startGame;

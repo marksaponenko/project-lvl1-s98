@@ -10,7 +10,7 @@ const getCorrectAnswer = (number) => {
   return 'no';
 };
 
-const getGameDescription = () => '';
-const startGame = () => startChallenge(getNumber, getCorrectAnswer, getGameDescription);
+const gameDescription = () => 'Answer "yes" if number is prime otherwise answer "no".';
+const startGame = () => startChallenge(getNumber, getCorrectAnswer, gameDescription);
 
 export default startGame;

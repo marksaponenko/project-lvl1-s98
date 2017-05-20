@@ -29,7 +29,7 @@ const getCorrectAnswer = (pairOfNumbers) => {
   return findGreatestDivisor(firstNumber, secondNumber);
 };
 
-const getGameDescription = () => 'Find the greatest common divisor of given numbers.';
-const startGame = () => startChallenge(getPairOfNumbers, getCorrectAnswer, getGameDescription);
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+const startGame = () => startChallenge(getPairOfNumbers, getCorrectAnswer, gameDescription);
 
 export default startGame;

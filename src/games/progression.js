@@ -2,7 +2,7 @@ import startChallenge from '..';
 import { findNextProgressionMember, addNextMemberToStr, getRandomNumber, getNumberFromString } from '../helpers';
 
 const progressionLength = 10;
-const guessPlace = 6;
+const guessPlace = getRandomNumber(8, 2);
 
 const getProgression = () => {
   const firstMember = getRandomNumber(10);
@@ -39,7 +39,7 @@ const countProgressionMember = (progression) => {
   return member;
 };
 
-const getGameDescription = () => 'What number is missing in this progression?';
-const startGame = () => startChallenge(getProgression, countProgressionMember, getGameDescription);
+const gameDescription = 'What number is missing in this progression?';
+const startGame = () => startChallenge(getProgression, countProgressionMember, gameDescription);
 
 export default startGame;

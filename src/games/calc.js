@@ -11,7 +11,7 @@ const getOperation = () => {
   const subtr = `${firstOperand} - ${secondOperand}`;
 
   const arrOfOperations = [mult, add, subtr];
-  return arrOfOperations[getRandomNumber(3)];
+  return arrOfOperations[getRandomNumber(2)];
 };
 
 const getCorrectAnswer = (operation) => {
@@ -28,7 +28,7 @@ const getCorrectAnswer = (operation) => {
   return firstNumber - secondNumber;
 };
 
-const getGameDescription = () => 'What is the result of the expression?';
-const startGame = () => startChallenge(getOperation, getCorrectAnswer, getGameDescription);
+const gameDescription = 'What is the result of the expression?';
+const startGame = () => startChallenge(getOperation, getCorrectAnswer, gameDescription);
 
 export default startGame;
