@@ -1,6 +1,6 @@
 {
   "name": "brain-games-somenumber",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "My first project",
   "main": "index.js",
   "bin": {

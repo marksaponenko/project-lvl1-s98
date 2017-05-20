@@ -3,10 +3,10 @@ import { findNextProgressionMember, getRandomNumber, getNumberFromString, makePa
 
 const progressionLength = 10;
 const guessPlace = getRandomNumber(8, 2);
-
+const progressionStep = getRandomNumber(10, 1);
 const getProgression = () => {
   const firstMember = getRandomNumber(10);
-  const progressionStep = getRandomNumber(10, 1);
+
   let newStr = '';
   let counter = 1;
 
@@ -27,11 +27,7 @@ const getProgression = () => {
 
 const countProgressionMember = (progression) => {
   const nextMember = getNumberFromString(progression, guessPlace);
-  const firstNumber = getNumberFromString(progression, 0);
-  const lastMember = getNumberFromString(progression, progressionLength - 1);
-
-  const member = nextMember - ((lastMember - firstNumber) / (progressionLength - 1));
-  return member;
+  return nextMember - progressionStep;
 };
 
 const getPairQuestionAnswer = () => makePair(getProgression, countProgressionMember);
