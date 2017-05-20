@@ -1,6 +1,6 @@
 import startChallenge from '..';
 
-const isPrime = (num) => {
+export const isPrime = (num) => {
   const iter = (number, divisor) => {
     if (number < 2) {
       return false;

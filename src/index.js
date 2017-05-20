@@ -22,7 +22,7 @@ const startChallenge = (getQuestion, getCorrectAnswer, getGameDescription) => {
   console.log(`Question: ${question}`);
   const userAnswer = readlineSync.question('Your answer: ');
 
-  if (correctAnswer === Number(userAnswer)) {
+  if (String(correctAnswer) === userAnswer) {
     numberOfTries += 1;
     console.log('Correct!');
     return startChallenge(getQuestion, getCorrectAnswer);
