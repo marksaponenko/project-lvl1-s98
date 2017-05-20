@@ -5,7 +5,7 @@ const progressionLength = 10;
 const guessPlace = 6;
 
 const getProgression = () => {
-  const firstMember = getRandomNumber(10)
+  const firstMember = getRandomNumber(10);
   const progressionStep = getRandomNumber(10, 1);
 
   const iter = (string, counter) => {

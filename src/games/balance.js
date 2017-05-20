@@ -1,7 +1,7 @@
 import startChallenge from '..';
 import { getNewStr, getMaxNumber, getMinNumber, getRandomNumber } from '../helpers';
 
-const getNumber = () => getRandomNumber(1000, 100)
+const getNumber = () => getRandomNumber(1000, 100);
 
 const getBalanceNumber = (number) => {
   const numberToSrt = String(number);
