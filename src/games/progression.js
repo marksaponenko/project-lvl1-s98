@@ -30,7 +30,12 @@ const countProgressionMember = (progression) => {
   return nextMember - progressionStep;
 };
 
-const getPairQuestionAnswer = () => makePair(getProgression, countProgressionMember);
+
+const getPairQuestionAnswer = () => {
+  const question = getProgression();
+  const answer = countProgressionMember(question);
+  return makePair(question, answer);
+};
 const gameDescription = 'What number is missing in this progression?';
 const startGame = () => startChallenge(getPairQuestionAnswer, gameDescription);
 

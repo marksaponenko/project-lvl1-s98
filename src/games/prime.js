@@ -10,7 +10,12 @@ const getCorrectAnswer = (number) => {
   return 'no';
 };
 
-const getPairQuestionAnswer = () => makePair(getNumber, getCorrectAnswer);
+const getPairQuestionAnswer = () => {
+  const question = getNumber();
+  const answer = getCorrectAnswer(question);
+  return makePair(question, answer);
+};
+
 const gameDescription = 'Answer "yes" if number is prime otherwise answer "no".';
 const startGame = () => startChallenge(getPairQuestionAnswer, gameDescription);
 

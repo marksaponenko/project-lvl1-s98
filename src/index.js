@@ -8,9 +8,9 @@ let numberOfTries = 1;
 
 const startChallenge = (getPairQuestionAnswer, gameDescription) => {
   const game = getPairQuestionAnswer();
+  const question = getQuestionFromPair(game);
+  const correctAnswer = getAnswerFromPair(game);
 
-  const question = getQuestionFromPair(game)();
-  const correctAnswer = getAnswerFromPair(game)(question);
   if (numberOfTries === 1) {
     console.log(gameDescription);
     userName = readlineSync.question('May I have your name? ');

@@ -28,8 +28,13 @@ const getCorrectAnswer = (operation) => {
   return firstNumber - secondNumber;
 };
 
-const pairQuestionAnswer = () => makePair(getOperation, getCorrectAnswer);
+const getPairQuestionAnswer = () => {
+  const question = getOperation();
+  const answer = getCorrectAnswer(question);
+  return makePair(question, answer);
+};
+
 const gameDescription = 'What is the result of the expression?';
-const startGame = () => startChallenge(pairQuestionAnswer, gameDescription);
+const startGame = () => startChallenge(getPairQuestionAnswer, gameDescription);
 
 export default startGame;
