@@ -68,3 +68,19 @@ export const getRandomNumber = (max, min = 0) => {
 };
 
 export const getSymbolFromString = (str, numberIndex) => str.split(' ')[numberIndex];
+
+export const isPrime = (num) => {
+  const iter = (number, divisor) => {
+    if (number < 2) {
+      return false;
+    }
+    if (divisor === 1) {
+      return true;
+    }
+    if (number % divisor === 0) {
+      return false;
+    }
+    return iter(number, divisor - 1);
+  };
+  return iter(num, Math.round(num / 2));
+};

@@ -1,21 +1,5 @@
 import startChallenge from '..';
-import { getNumberFromString, getRandomNumber } from '../helpers';
-
-export const isPrime = (num) => {
-  const iter = (number, divisor) => {
-    if (number < 2) {
-      return false;
-    }
-    if (divisor === 1) {
-      return true;
-    }
-    if (number % divisor === 0) {
-      return false;
-    }
-    return iter(number, divisor - 1);
-  };
-  return iter(num, Math.round(num / 2));
-};
+import { getNumberFromString, getRandomNumber, isPrime } from '../helpers';
 
 const getNotPrimeNumber = (num) => {
   if (isPrime(num)) {

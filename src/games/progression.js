@@ -1,5 +1,5 @@
 import startChallenge from '..';
-import { findNextProgressionMember, addNextMemberToStr, getRandomNumber } from '../helpers';
+import { findNextProgressionMember, addNextMemberToStr, getRandomNumber, getNumberFromString } from '../helpers';
 
 const progressionLength = 10;
 const guessPlace = 6;
@@ -31,10 +31,11 @@ const getProgression = () => {
 };
 
 const countProgressionMember = (progression) => {
-  const progAsArr = progression.split(' ');
-  const member = progAsArr[guessPlace]
-  - ((progAsArr[progressionLength - 1] - progAsArr[0]) / (progressionLength - 1));
+  const nextMember = getNumberFromString(progression, guessPlace);
+  const firstMember = getNumberFromString(progression, 0);
+  const lastMember = getNumberFromString(progression, progressionLength - 1);
 
+  const member = nextMember - ((lastMember - firstMember) / (progressionLength - 1));
   return member;
 };
 

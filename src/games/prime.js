@@ -1,6 +1,5 @@
 import startChallenge from '..';
-import { isPrime } from './gcd';
-import { getRandomNumber } from '../helpers';
+import { getRandomNumber, isPrime } from '../helpers';
 
 const getNumber = () => getRandomNumber(100);
 
