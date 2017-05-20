@@ -1,7 +1,8 @@
 import startChallenge from '..';
 import { isPrime } from './gcd';
+import { getRandomNumber } from '../helpers';
 
-const getRandomNumber = () => Math.floor(Math.random() * 100);
+const getNumber = () => getRandomNumber(100);
 
 const getCorrectAnswer = (number) => {
   if (isPrime(number)) {
@@ -11,6 +12,6 @@ const getCorrectAnswer = (number) => {
 };
 
 const getGameDescription = () => '';
-const startGame = () => startChallenge(getRandomNumber, getCorrectAnswer, getGameDescription);
+const startGame = () => startChallenge(getNumber, getCorrectAnswer, getGameDescription);
 
 export default startGame;

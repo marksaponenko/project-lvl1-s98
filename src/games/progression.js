@@ -1,12 +1,12 @@
 import startChallenge from '..';
-import { findNextProgressionMember, addNextMemberToStr } from '../helpers';
+import { findNextProgressionMember, addNextMemberToStr, getRandomNumber } from '../helpers';
 
 const progressionLength = 10;
 const guessPlace = 6;
 
 const getProgression = () => {
-  const firstMember = Math.floor(Math.random() * 10);
-  const progressionStep = Math.floor(Math.random() * 10);
+  const firstMember = getRandomNumber(10)
+  const progressionStep = getRandomNumber(10, 1);
 
   const iter = (string, counter) => {
     if (counter === 1) {
@@ -35,7 +35,7 @@ const countProgressionMember = (progression) => {
   const member = progAsArr[guessPlace]
   - ((progAsArr[progressionLength - 1] - progAsArr[0]) / (progressionLength - 1));
 
-  return Number(member);
+  return member;
 };
 
 const getGameDescription = () => 'What number is missing in this progression?';

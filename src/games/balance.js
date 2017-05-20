@@ -1,7 +1,7 @@
 import startChallenge from '..';
-import { getNewStr, getMaxNumber, getMinNumber } from '../helpers';
+import { getNewStr, getMaxNumber, getMinNumber, getRandomNumber } from '../helpers';
 
-const getRandomNumber = () => Math.floor(Math.random() * 1000);
+const getNumber = () => getRandomNumber(1000, 100)
 
 const getBalanceNumber = (number) => {
   const numberToSrt = String(number);
@@ -15,6 +15,6 @@ const getBalanceNumber = (number) => {
 };
 
 const getGameDescription = () => 'Balance the given number.';
-const startGame = () => startChallenge(getRandomNumber, getBalanceNumber, getGameDescription);
+const startGame = () => startChallenge(getNumber, getBalanceNumber, getGameDescription);
 
 export default startGame;

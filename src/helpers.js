@@ -58,3 +58,11 @@ export const addNextMemberToStr = (str, nextMember, counter) => {
   }
   return `${str} ${nextMember}`;
 };
+
+export const getNumberFromString = (str, numberIndex) => str.split(' ')[numberIndex];
+
+export const getRandomNumber = (max, min = 0) => {
+  let rand = min + (Math.random() * ((max + 1) - min));
+  rand = Math.floor(rand);
+  return rand;
+};

@@ -1,4 +1,5 @@
 import startChallenge from '..';
+import { getNumberFromString, getRandomNumber } from '../helpers';
 
 export const isPrime = (num) => {
   const iter = (number, divisor) => {
@@ -24,8 +25,8 @@ const getNotPrimeNumber = (num) => {
 };
 
 const getPairOfNumbers = () => {
-  const firstNumber = getNotPrimeNumber(Math.floor(Math.random() * 100));
-  const secondNumber = getNotPrimeNumber(Math.floor(Math.random() * 100));
+  const firstNumber = getNotPrimeNumber(getRandomNumber(100, 2));
+  const secondNumber = getNotPrimeNumber(getRandomNumber(100, 2));
 
   return `${firstNumber} ${secondNumber}`;
 };
@@ -38,9 +39,8 @@ const findGreatestDivisor = (firstNumber, secondNumber) => {
 };
 
 const getCorrectAnswer = (pairOfNumbers) => {
-  const strToArr = pairOfNumbers.split(' ');
-  const firstNumber = strToArr[0];
-  const secondNumber = strToArr[1];
+  const firstNumber = getNumberFromString(pairOfNumbers, 0);
+  const secondNumber = getNumberFromString(pairOfNumbers, 1);
 
   return findGreatestDivisor(firstNumber, secondNumber);
 };

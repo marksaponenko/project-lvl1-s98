@@ -1,15 +1,17 @@
 import startChallenge from '..';
+import { getRandomNumber } from '../helpers';
+
 
 const getOperation = () => {
-  const firstOperand = Math.floor(Math.random() * 25);
-  const secondOperand = Math.floor(Math.random() * 25);
+  const firstOperand = getRandomNumber(25);
+  const secondOperand = getRandomNumber(25);
 
   const mult = `${firstOperand} * ${secondOperand}`;
   const add = `${firstOperand} + ${secondOperand}`;
   const subtr = `${firstOperand} - ${secondOperand}`;
 
   const arrOfOperations = [mult, add, subtr];
-  return arrOfOperations[Math.floor(Math.random() * 3)];
+  return arrOfOperations[getRandomNumber(2)];
 };
 
 const getCorrectAnswer = (operation) => {
