@@ -1,3 +1,5 @@
+import { cons, car, cdr } from 'hexlet-pairs';
+
 export const getNewStr = (maxNumber, minNumber, str) => {
   const newMaxNumber = maxNumber - 1;
   const newMinNumber = +minNumber + 1;
@@ -84,3 +86,7 @@ export const isPrime = (num) => {
   };
   return iter(num, Math.round(num / 2));
 };
+
+export const makePair = (question, answer) => cons(question, answer);
+export const getQuestionFromPair = pair => car(pair);
+export const getAnswerFromPair = pair => cdr(pair);

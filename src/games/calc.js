@@ -1,5 +1,5 @@
 import startChallenge from '..';
-import { getRandomNumber, getNumberFromString, getSymbolFromString } from '../helpers';
+import { getRandomNumber, getNumberFromString, getSymbolFromString, makePair } from '../helpers';
 
 
 const getOperation = () => {
@@ -28,7 +28,8 @@ const getCorrectAnswer = (operation) => {
   return firstNumber - secondNumber;
 };
 
+const pairQuestionAnswer = () => makePair(getOperation, getCorrectAnswer);
 const gameDescription = 'What is the result of the expression?';
-const startGame = () => startChallenge(getOperation, getCorrectAnswer, gameDescription);
+const startGame = () => startChallenge(pairQuestionAnswer, gameDescription);
 
 export default startGame;

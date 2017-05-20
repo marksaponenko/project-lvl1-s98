@@ -1,5 +1,5 @@
 import startChallenge from '..';
-import { getNumberFromString, getRandomNumber, isPrime } from '../helpers';
+import { getNumberFromString, getRandomNumber, isPrime, makePair } from '../helpers';
 
 const getNotPrimeNumber = (num) => {
   if (isPrime(num)) {
@@ -29,7 +29,8 @@ const getCorrectAnswer = (pairOfNumbers) => {
   return findGreatestDivisor(firstNumber, secondNumber);
 };
 
+const getPairQuestionAnswer = () => makePair(getPairOfNumbers, getCorrectAnswer);
 const gameDescription = 'Find the greatest common divisor of given numbers.';
-const startGame = () => startChallenge(getPairOfNumbers, getCorrectAnswer, gameDescription);
+const startGame = () => startChallenge(getPairQuestionAnswer, gameDescription);
 
 export default startGame;

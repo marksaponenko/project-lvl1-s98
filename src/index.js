@@ -1,14 +1,18 @@
 import readlineSync from 'readline-sync';
+import { getQuestionFromPair, getAnswerFromPair } from './helpers';
 
 console.log('Welcome to the Brain Games!');
 
 let userName = '';
 let numberOfTries = 1;
 
-const startChallenge = (getQuestion, getCorrectAnswer, gameDescription) => {
-  const question = getQuestion();
-  const correctAnswer = getCorrectAnswer(question);
+const startChallenge = (getPairQuestionAnswer, gameDescription) => {
+  const game = getPairQuestionAnswer();
 
+  const question = getQuestionFromPair(game)();
+  const correctAnswer = getAnswerFromPair(game)(question);
+  console.log(question);
+  console.log(correctAnswer);
   if (numberOfTries === 1) {
     console.log(gameDescription);
     userName = readlineSync.question('May I have your name? ');
@@ -24,7 +28,7 @@ const startChallenge = (getQuestion, getCorrectAnswer, gameDescription) => {
   if (String(correctAnswer) === userAnswer) {
     numberOfTries += 1;
     console.log('Correct!');
-    return startChallenge(getQuestion, getCorrectAnswer);
+    return startChallenge(getPairQuestionAnswer);
   }
 
   return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLets try again, ${userName}`);

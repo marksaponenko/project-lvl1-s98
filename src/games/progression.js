@@ -1,5 +1,5 @@
 import startChallenge from '..';
-import { findNextProgressionMember, addNextMemberToStr, getRandomNumber, getNumberFromString } from '../helpers';
+import { findNextProgressionMember, addNextMemberToStr, getRandomNumber, getNumberFromString, makePair } from '../helpers';
 
 const progressionLength = 10;
 const guessPlace = getRandomNumber(8, 2);
@@ -39,7 +39,8 @@ const countProgressionMember = (progression) => {
   return member;
 };
 
+const getPairQuestionAnswer = () => makePair(getProgression, countProgressionMember);
 const gameDescription = 'What number is missing in this progression?';
-const startGame = () => startChallenge(getProgression, countProgressionMember, gameDescription);
+const startGame = () => startChallenge(getPairQuestionAnswer, gameDescription);
 
 export default startGame;
