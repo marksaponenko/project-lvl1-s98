@@ -46,3 +46,15 @@ export const getMinNumber = (number) => {
   };
   return iter(numToStr, 9, 0);
 };
+
+export const findNextProgressionMember = (firstMember, curMemberIndex, progressionStep) => {
+  const nextMember = ((curMemberIndex - 1) * progressionStep) + firstMember;
+  return String(nextMember);
+};
+
+export const addNextMemberToStr = (str, nextMember, counter) => {
+  if (counter === 1) {
+    return `${str}${nextMember}`;
+  }
+  return `${str} ${nextMember}`;
+};
