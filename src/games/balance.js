@@ -4,14 +4,13 @@ import { getNewStr, getMaxNumber, getMinNumber, getRandomNumber } from '../helpe
 const getNumber = () => getRandomNumber(1000, 100);
 
 const getBalanceNumber = (number) => {
-  const numberToSrt = String(number);
-  const maxNumber = getMaxNumber(numberToSrt);
-  const minNumber = getMinNumber(numberToSrt);
-  const newStr = getNewStr(maxNumber, minNumber, numberToSrt);
+  const maxNumber = getMaxNumber(number);
+  const minNumber = getMinNumber(number);
+  const newStr = getNewStr(maxNumber, minNumber, number);
   if (maxNumber - minNumber > 1) {
     return getBalanceNumber(newStr);
   }
-  return Number(numberToSrt);
+  return number;
 };
 
 const getGameDescription = () => 'Balance the given number.';

@@ -28,7 +28,7 @@ export const getMaxNumber = (number) => {
       }
       return iter(str, acc, count + 1);
     }
-    return acc;
+    return String(acc);
   };
   return iter(numToStr, 0, 0);
 };
@@ -42,7 +42,7 @@ export const getMinNumber = (number) => {
       }
       return iter(str, acc, count + 1);
     }
-    return acc;
+    return String(acc);
   };
   return iter(numToStr, 9, 0);
 };
