@@ -1,5 +1,5 @@
 import startChallenge from '..';
-import { getRandomNumber } from '../helpers';
+import { getRandomNumber, getNumberFromString, getSymbolFromString } from '../helpers';
 
 
 const getOperation = () => {
@@ -11,19 +11,21 @@ const getOperation = () => {
   const subtr = `${firstOperand} - ${secondOperand}`;
 
   const arrOfOperations = [mult, add, subtr];
-  return arrOfOperations[getRandomNumber(2)];
+  return arrOfOperations[getRandomNumber(3)];
 };
 
 const getCorrectAnswer = (operation) => {
-  const strToArr = operation.split(' ');
+  const operator = getSymbolFromString(operation, 1);
+  const firstNumber = getNumberFromString(operation, 0);
+  const secondNumber = getNumberFromString(operation, 2);
 
-  if (strToArr[1] === '*') {
-    return Number(strToArr[0]) * Number(strToArr[2]);
+  if (operator === '*') {
+    return firstNumber * secondNumber;
   }
-  if (strToArr[1] === '+') {
-    return Number(strToArr[0]) + Number(strToArr[2]);
+  if (operator === '+') {
+    return firstNumber + secondNumber;
   }
-  return Number(strToArr[0]) - Number(strToArr[2]);
+  return firstNumber - secondNumber;
 };
 
 const getGameDescription = () => 'What is the result of the expression?';
