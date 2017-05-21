@@ -1,36 +1,28 @@
 import startChallenge from '..';
-import { getRandomNumber, getNumberFromString, getSymbolFromString, makePair } from '../helpers';
+import { getRandomNumber, makePair } from '../helpers';
 
 
-const getOperation = () => {
+const getPairQuestionAnswer = () => {
   const firstOperand = getRandomNumber(25);
   const secondOperand = getRandomNumber(25);
+  let answer = 0;
 
   const mult = `${firstOperand} * ${secondOperand}`;
   const add = `${firstOperand} + ${secondOperand}`;
   const subtr = `${firstOperand} - ${secondOperand}`;
 
   const arrOfOperations = [mult, add, subtr];
-  return arrOfOperations[getRandomNumber(2)];
-};
+  const question = arrOfOperations[getRandomNumber(2)];
 
-const getCorrectAnswer = (operation) => {
-  const operator = getSymbolFromString(operation, 1);
-  const firstNumber = getNumberFromString(operation, 0);
-  const secondNumber = getNumberFromString(operation, 2);
-
-  if (operator === '*') {
-    return firstNumber * secondNumber;
+  if (question === mult) {
+    answer = firstOperand * secondOperand;
   }
-  if (operator === '+') {
-    return firstNumber + secondNumber;
+  if (question === add) {
+    answer = firstOperand + secondOperand;
   }
-  return firstNumber - secondNumber;
-};
-
-const getPairQuestionAnswer = () => {
-  const question = getOperation();
-  const answer = getCorrectAnswer(question);
+  if (question === subtr) {
+    answer = firstOperand - secondOperand;
+  }
   return makePair(question, answer);
 };
 

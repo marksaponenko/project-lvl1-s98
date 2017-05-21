@@ -1,18 +1,9 @@
 import startChallenge from '..';
 import { getRandomNumber, isPrime, makePair } from '../helpers';
 
-const getNumber = () => getRandomNumber(100);
-
-const getCorrectAnswer = (number) => {
-  if (isPrime(number)) {
-    return 'yes';
-  }
-  return 'no';
-};
-
 const getPairQuestionAnswer = () => {
-  const question = getNumber();
-  const answer = getCorrectAnswer(question);
+  const question = getRandomNumber(100);
+  const answer = isPrime(question) ? 'yes' : 'no';
   return makePair(question, answer);
 };
 

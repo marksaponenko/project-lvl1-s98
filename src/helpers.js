@@ -90,3 +90,27 @@ export const isPrime = (num) => {
 export const makePair = (question, answer) => cons(question, answer);
 export const getQuestionFromPair = pair => car(pair);
 export const getAnswerFromPair = pair => cdr(pair);
+
+export const findGreatestDivisor = (firstNumber, secondNumber) => {
+  if (secondNumber === 0) {
+    return firstNumber;
+  }
+  return findGreatestDivisor(secondNumber, firstNumber % secondNumber);
+};
+
+export const getNotPrimeNumber = (num) => {
+  if (isPrime(num)) {
+    return getNotPrimeNumber(num - 1);
+  }
+  return num;
+};
+
+export const getBalanceNumber = (number) => {
+  const maxNumber = getMaxElementInNumber(number);
+  const minNumber = getMinElementInNumber(number);
+  const newStr = getNewStr(maxNumber, minNumber, String(number));
+  if (maxNumber - minNumber > 1) {
+    return getBalanceNumber(newStr);
+  }
+  return number;
+};

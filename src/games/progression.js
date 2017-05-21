@@ -2,7 +2,7 @@ import startChallenge from '..';
 import { findNextProgressionMember, getRandomNumber, makePair } from '../helpers';
 
 
-const getProgression = () => {
+const getPairQuestionAnswer = () => {
   const firstMember = getRandomNumber(10);
   const progressionLength = 10;
   const guessPlace = getRandomNumber(8, 2);
@@ -28,7 +28,6 @@ const getProgression = () => {
   return makePair(newStr, guessNumber);
 };
 
-const getPairQuestionAnswer = () => getProgression();
 const gameDescription = 'What number is missing in this progression?';
 const startGame = () => startChallenge(getPairQuestionAnswer, gameDescription);
 
