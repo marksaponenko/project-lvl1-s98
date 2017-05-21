@@ -23,7 +23,7 @@ const getPairQuestionAnswer = () => {
   if (question === subtr) {
     answer = firstOperand - secondOperand;
   }
-  return makePair(question, answer);
+  return makePair(question, String(answer));
 };
 
 const gameDescription = 'What is the result of the expression?';

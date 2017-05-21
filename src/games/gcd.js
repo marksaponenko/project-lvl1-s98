@@ -9,7 +9,7 @@ const getPairQuestionAnswer = () => {
 
   const answer = findGreatestDivisor(firstNumber, secondNumber);
 
-  return makePair(question, answer);
+  return makePair(question, String(answer));
 };
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';

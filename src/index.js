@@ -4,33 +4,29 @@ import { getQuestionFromPair, getAnswerFromPair } from './helpers';
 console.log('Welcome to the Brain Games!');
 
 let userName = '';
-let numberOfTries = 1;
 
 const startChallenge = (getPairQuestionAnswer, gameDescription) => {
-  const game = getPairQuestionAnswer();
-  const question = getQuestionFromPair(game);
-  const correctAnswer = getAnswerFromPair(game);
+  console.log(gameDescription);
+  userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
 
-  if (numberOfTries === 1) {
-    console.log(gameDescription);
-    userName = readlineSync.question('May I have your name? ');
-    console.log(`Hello, ${userName}!`);
-  }
-  if (numberOfTries > 3) {
+  const iter = (func, counter) => {
+    const game = getPairQuestionAnswer();
+    const question = getQuestionFromPair(game);
+    const correctAnswer = getAnswerFromPair(game);
+    while (counter <= 3) {
+      console.log(`Question: ${question}`);
+      const userAnswer = readlineSync.question('Your answer: ');
+
+      if (correctAnswer === userAnswer) {
+        console.log('Correct!');
+        return iter(func, counter + 1);
+      }
+      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLets try again, ${userName}`);
+    }
     return console.log(`Congratulations, ${userName}!`);
-  }
-
-  console.log(`Question: ${question}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-
-  if (String(correctAnswer) === userAnswer) {
-    numberOfTries += 1;
-    console.log('Correct!');
-    return startChallenge(getPairQuestionAnswer);
-  }
-
-  return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLets try again, ${userName}`);
+  };
+  return iter(getPairQuestionAnswer, 1);
 };
-
 
 export default startChallenge;

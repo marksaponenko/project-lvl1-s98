@@ -25,7 +25,7 @@ const getPairQuestionAnswer = () => {
     newStr += ` ${findNextProgressionMember(firstMember, counter, progressionStep)}`;
     counter += 1;
   }
-  return makePair(newStr, guessNumber);
+  return makePair(newStr, String(guessNumber));
 };
 
 const gameDescription = 'What number is missing in this progression?';
