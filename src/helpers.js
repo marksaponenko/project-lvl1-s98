@@ -21,7 +21,7 @@ export const getNewStr = (maxNumber, minNumber, str) => {
   return newStr.split('').sort().join('');
 };
 
-export const getMaxNumber = (number) => {
+export const getMaxElementInNumber = (number) => {
   const numToStr = String(number);
   const iter = (str, acc, count) => {
     while (count < str.length) {
@@ -35,7 +35,7 @@ export const getMaxNumber = (number) => {
   return iter(numToStr, 0, 0);
 };
 
-export const getMinNumber = (number) => {
+export const getMinElementInNumber = (number) => {
   const numToStr = String(number);
   const iter = (str, acc, count) => {
     while (count < str.length) {
