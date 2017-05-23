@@ -1,11 +1,13 @@
 import askQuestion from '..';
+import { getRandomNumber, makePair } from '../helpers';
 
-console.log('Answer "yes" if number even otherwise answer "no".');
+const getPairQuestionAnswer = () => {
+  const question = getRandomNumber(100);
+  const answer = question % 2 === 0 ? 'yes' : 'no';
+  return makePair(question, answer);
+};
 
-
-const getRandomNumber = () => Math.floor(Math.random() * 100);
-
-const getCorrectAnswer = randomNumber => (randomNumber % 2 === 0 ? 'yes' : 'no');
-const startGame = () => askQuestion(getRandomNumber, getCorrectAnswer);
+const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
+const startGame = () => askQuestion(getPairQuestionAnswer, gameDescription);
 
 export default startGame;

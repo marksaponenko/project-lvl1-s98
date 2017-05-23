@@ -1,7 +1,6 @@
 import startChallenge from '..';
 import { getRandomNumber, makePair } from '../helpers';
 
-
 const getPairQuestionAnswer = () => {
   const firstOperand = getRandomNumber(25);
   const secondOperand = getRandomNumber(25);

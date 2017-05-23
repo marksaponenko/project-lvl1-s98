@@ -8,24 +8,20 @@ const getPairQuestionAnswer = () => {
   const guessPlace = getRandomNumber(8, 2);
   const progressionStep = getRandomNumber(10, 1);
 
-  let newStr = '';
-  let counter = 1;
+  let progression = 'firstMember';
+  let counter = 2;
   let guessNumber = 0;
 
   while (counter <= progressionLength) {
-    if (counter === 1) {
-      newStr += String(firstMember);
-      counter += 1;
-    }
     if (counter === guessPlace) {
-      newStr += ' ..';
+      progression += ' ..';
       counter += 1;
       guessNumber = firstMember + ((guessPlace - 1) * progressionStep);
     }
-    newStr += ` ${findNextProgressionMember(firstMember, counter, progressionStep)}`;
+    progression += ` ${findNextProgressionMember(firstMember, counter, progressionStep)}`;
     counter += 1;
   }
-  return makePair(newStr, String(guessNumber));
+  return makePair(progression, String(guessNumber));
 };
 
 const gameDescription = 'What number is missing in this progression?';
